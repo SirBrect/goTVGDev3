@@ -1,0 +1,31 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Signal Thing</title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+	<script type="text/javascript" src="js/PreloadState.js"></script>
+	<script type="text/javascript" src="js/MainMenuState.js"></script>
+    <script type="text/javascript" src="js/WinState.js"></script>
+	
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    
+<script type="text/javascript">
+
+    let game = new Phaser.Game(800, 600, Phaser.AUTO);
+
+    game.state.add("Preload", preloadState);
+    game.state.add("Main Menu", MainMenuState);
+    game.state.add("Win", WinState);
+    game.state.start("Preload");
+
+</script>
+
+</body>
+</html>
