@@ -7,5 +7,5 @@ MainMenuState.prototype.create = function(){
 }
 
 actionOnClick = function(){
-	game.state.start("Win");
+	game.state.start("Game");
 }
