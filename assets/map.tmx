@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="22" height="10" tilewidth="120" tileheight="120" infinite="0" nextlayerid="2" nextobjectid="1">
- <layer id="1" name="Tile Layer 1" width="22" height="10">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="22" height="10" tilewidth="120" tileheight="120" infinite="0" nextlayerid="16" nextobjectid="30">
+ <tileset firstgid="1" source="maplayouts.tsx"/>
+ <tileset firstgid="12" source="4-way_cell_tower_pink.tsx"/>
+ <tileset firstgid="12" source="housefrontt.tsx"/>
+ <tileset firstgid="12" source="tree.tsx"/>
+ <tileset firstgid="12" source="houseright.tsx"/>
+ <tileset firstgid="12" source="colorful_building.tsx"/>
+ <tileset firstgid="12" source="Skyscraper.tsx"/>
+ <layer id="4" name="ground" width="22" height="10">
+  <data encoding="csv">
+1610612743,3758096392,3758096392,3758096392,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+2147483656,11,11,2684354568,2684354567,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+2147483656,11,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+2147483657,10,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1610612743,1610612744,7,
+2147483656,11,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3221225480,11,8,
+2147483656,11,8,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,3221225480,11,8,
+3221225479,2684354568,2684354567,1,1,1,1,1,1,2147483652,2,4,1,1,1,1,1,1,1,2147483657,10,9,
+1,1,1,1,1,1,1,1,2147483652,2,2,2,4,1,1,1,1,1,1,3221225480,11,8,
+1,1,1,1,1,1,1,2147483652,2,2,2,2,2,4,1,1,1610612743,1610612744,1610612744,11,11,8,
+1,1,1,1,1,1,2147483654,5,5,5,5,5,5,5,6,1,3221225479,2684354568,2684354568,2684354568,2684354568,2684354567
+</data>
+ </layer>
+ <layer id="5" name="reference" width="22" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -14,4 +35,57 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="6" name="mountain" visible="0" locked="1">
+  <object id="4" type="Mountain" x="1257.58" y="618.182">
+   <polygon points="0,0 -515.152,557.576 524.242,566.667"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="red_tower" visible="0">
+  <object id="5" type="Red_tower" x="360.606" y="242.424" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup id="9" name="red_house" visible="0">
+  <object id="6" type="Red_house" x="362" y="362" width="236" height="237"/>
+ </objectgroup>
+ <objectgroup id="10" name="refection_tower" visible="0">
+  <object id="7" type="refection_tower" x="481.333" y="242.667" width="116" height="114.667"/>
+  <object id="8" type="refection_tower" x="722.667" y="360" width="118.667" height="121.333"/>
+  <object id="9" type="refection_tower" x="1320" y="242" width="120" height="118"/>
+  <object id="10" type="refection_tower" x="1322" y="4" width="116" height="116"/>
+  <object id="11" type="refection_tower" x="2036" y="358" width="122" height="122"/>
+  <object id="12" type="refection_tower" x="2158" y="840" width="120" height="122"/>
+  <object id="13" type="refection_tower" x="1916" y="2" width="126" height="118"/>
+ </objectgroup>
+ <objectgroup id="11" name="blue_tower" visible="0">
+  <object id="14" type="blue_tower" x="1316" y="116" width="122" height="120"/>
+ </objectgroup>
+ <objectgroup id="12" name="blue_house" visible="0">
+  <object id="15" type="Sky" x="838" y="120" width="360" height="116"/>
+  <object id="16" type="blue_house" x="964" y="238" width="232" height="122"/>
+  <object id="17" type="Sky" x="1560" y="120" width="238" height="116"/>
+  <object id="18" type="Sky" x="1922" y="116" width="118" height="122"/>
+  <object id="19" type="blue_house" x="1558" y="238" width="240" height="120"/>
+ </objectgroup>
+ <objectgroup id="13" name="yellow_tower" visible="0">
+  <object id="21" type="yellow_tower" x="2038" y="838" width="118" height="122"/>
+ </objectgroup>
+ <objectgroup id="14" name="yellow houses" visible="0">
+  <object id="23" type="yellow_house" x="2039.5" y="600.5" width="238.5" height="239.5"/>
+ </objectgroup>
+ <objectgroup id="15" name="trees">
+  <object id="24" x="360" y="600">
+   <polygon points="0,0 0,240 -360,240 -360,600 360,600 360,0 0,0"/>
+  </object>
+  <object id="25" x="598" y="238">
+   <polygon points="0,0 2,122 122,122 122,2 242,2 242,-118 722,-118 722,-238 2,-238"/>
+  </object>
+  <object id="26" x="842" y="486">
+   <polygon points="0,0 -2,474 118,474 118,354 238,354 238,234 358,234 358,114 478,114 478,234 598,234 598,354 718,354 718,474 838,474 838,594 958,594 958,714 1078,714 1078,474 958,474 958,-6"/>
+  </object>
+  <object id="28" x="1440" y="0">
+   <polygon points="0,0 0,120 360,120 360,240 480,240 480,360 600,360 600,240 480,240 480,120 480,0"/>
+  </object>
+  <object id="29" type="tree" x="2040" y="0">
+   <polygon points="0,0 0,360 120,360 120,480 240,480 240,360 600,360 600,0"/>
+  </object>
+ </objectgroup>
 </map>
