@@ -3,10 +3,10 @@ let TILESIZE = 128;
 
 //Enums for basic properties of game objects
 let directions = {
-	UP:0;
-	RIGHT:1;
-	DOWN:2;
-	LEFT:3;
+	UP:0,
+	RIGHT:1,
+	DOWN:2,
+	LEFT:3
 };
 
 let powerLevels = {
@@ -18,7 +18,7 @@ let powerLevels = {
 
 let colors = {
 	RED:0;
-	GREEN:1;
+	YELLOW:1;
 	BLUE:2;
 };
 

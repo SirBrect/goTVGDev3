@@ -1,12 +1,14 @@
-// gameplayState constructor
-
 let gameplayState = function(){
 	this.score = 0;
 };
 var map;
 var layer;
 var towers;
+var cur_over;
+var on_swipe;
 gameplayState.prototype.create = function(){
+    game.input.onUp.add(this.mouseUp, this);
+    game.input.onDown.add(this.mouseDown, this);
     map = game.add.tilemap('map');
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
     
@@ -27,24 +29,40 @@ gameplayState.prototype.create = function(){
         for (var o in map.objects[ol]) {
             var obj = map.objects[ol][o];
             if(map.objects[ol][o].type === 'red_tower'){
-                var tow = game.add.sprite(obj.x, obj.y, '4way_red',0);
-                //tow.inputEnabled = true;
+                var tow = game.add.sprite(obj.x, obj.y, 'red_t',0);
+                tow.inputEnabled = true;
                 //tow.events.onInputDown.add(this.over,tow);
-                tow.t_type = 'red_tower';
+                tow.events.onInputOver.add(this.over,tow);
+                tow.events.onInputOut.add(this.out,tow);
+                tow.t_type = 'tower';
+                tow.col = 1;
+                tow.dir = 0;
+                tow.animations.add('spin', [0,1,2,3,4,5,6,7],13,true);
+                tow.animations.play('spin');
                 r_towers.add(tow);
             }
             else if(map.objects[ol][o].type === 'yellow_tower'){
-                var tow = game.add.sprite(obj.x,obj.y, '4way_yellow',0);
-                //tow.inputEnabled = true;
+                var tow = game.add.sprite(obj.x,obj.y, 'yellow_t',0);
+                tow.inputEnabled = true;
                 //tow.events.onInputDown.add(this.over,tow);
-                tow.t_type = 'yellow_tower';
+                tow.events.onInputOver.add(this.over,tow);
+                tow.events.onInputOut.add(this.out,tow);
+                tow.t_type = 'tower';
+                tow.dir = 2;
+                tow.animations.add('spin', [0,1,2,3,4,5,6,7],13,true);
+                tow.animations.play('spin');
                 y_towers.add(tow);
             }
             else if(map.objects[ol][o].type === 'blue_tower'){
-                var tow = game.add.sprite(obj.x,obj.y, '4way_blue',0);
-                //tow.inputEnabled = true;
+                var tow = game.add.sprite(obj.x,obj.y, 'blue_t',0);
+                tow.inputEnabled = true;
                 //tow.events.onInputDown.add(this.over,tow);
-                tow.t_type = 'blue_tower';
+                tow.events.onInputOver.add(this.over,tow);
+                tow.events.onInputOut.add(this.out,tow);
+                tow.t_type = 'tower';
+                tow.dir = 3;
+                tow.animations.add('spin', [0,1,2,3,4,5,6,7],13,true);
+                tow.animations.play('spin');
                 b_towers.add(tow);
             }
             else if(map.objects[ol][o].type === 'red_house'){
@@ -65,9 +83,11 @@ gameplayState.prototype.create = function(){
             else if(map.objects[ol][o].type === 'refection_tower'){
                 var tow = game.add.sprite(obj.x,obj.y, 'LL');
                 tow.inputEnabled = true;
-                tow.events.onInputDown.add(this.over,tow);
+                tow.events.onInputOver.add(this.over,tow);
+                tow.events.onInputOut.add(this.out,tow);
                 tow.dir = 0;
-                tow.t_type = 'refection_tower';
+                tow.col = 0;
+                tow.t_type = 'tower';
                 rf_towers.add(tow);
             }
             else if(map.objects[ol][o].type === 'sky'){
@@ -80,29 +100,98 @@ gameplayState.prototype.create = function(){
                 tree.t_type = 'tree';
                 trees.add(tow);
             }
+            else if(map.objects[ol][o].type === 'mountain'){
+                var mountain = game.add.sprite(obj.x,obj.y);
+                mountain.inputEnabled = true;
+                mountain.events.onInputDown.add(this.over,mountain);
+                mountain.t_type = 'mountain';
+            }
             
             // Do something with the object data here; game.add.sprite(object.name)
             // for example, or even game.add[object.type](object.name)
         }
     }
 
-    r_towers.callAll('animations.add','animations','spin_r', [0,1,2,3,4,5,6,7],20,true);
-    r_towers.callAll('animations.play','animations','spin_r');
-
-    b_towers.callAll('animations.add','animations','spin_b', [0,1,2,3,4,5,6,7],20,true);
-    b_towers.callAll('animations.play','animations','spin_b');
-
-    y_towers.callAll('animations.add','animations','spin_y', [0,1,2,3,4,5,6,7],20,true);
-    y_towers.callAll('animations.play','animations','spin_y');
-
     //  This resizes the game world to match the layer dimensions
     layer.resizeWorld();
 };
-gameplayState.prototype.over = function(tower){
-    if(tower.t_type === 'm_tower'){
-        game.state.start("Win");
+gameplayState.prototype.mouseDown = function() {
+    //set the mouseIsDown to true
+    this.mouseIsDown = true;
+    //
+    //
+    //record the place the mouse started
+    //
+    //
+    this.startX = game.input.x;
+    this.startY = game.input.y;
+}
+gameplayState.prototype.mouseUp = function() {
+    this.mouseIsDown = false;
+}
+gameplayState.prototype.swipeDone = function(cur_over) {
+    //get the ending point
+    var endX = game.input.x;
+    var endY = game.input.y;
+    var diffx = Math.abs(this.startX - endX);
+    var diffy = Math.abs(this.startY - endY);
+    var dirx = endX - this.startX;
+    var diry = endY - this.startY;
+    
+    //check the start point against the end point
+    if(cur_over.t_type === 'tower'){
+        if(cur_over.col < 1){
+            if(dirx > 0){
+                if(diry > 0){
+                    console.log('Bottom right swipe detected');
+                    cur_over.loadTexture('UL');
+                    cur_over.dir = 3;
+                    cur_over.update();
+                }
+                else{
+                    console.log('Top right swipe detected');
+                    cur_over.loadTexture('LL');
+                    cur_over.dir = 0;
+                    cur_over.update();
+                }
+            }
+            else{
+                if(diry > 0){
+                    console.log('Bottom left swipe detected');
+                    cur_over.loadTexture('UR');
+                    cur_over.dir = 3;
+                    cur_over.update();
+                }
+                else{
+                    console.log('Top left swipe detected');
+                    cur_over.loadTexture('LR');
+                    cur_over.dir = 0;
+                    cur_over.update();
+                }
+            }
+        }
+        else{
+            if(diffx > diffy){
+                if(dirx > 0){
+                    console.log('Swiped right');
+                }
+                else{
+                    console.log('Swiped Left');
+                }
+            }
+            else{
+                if(diry > 0){
+                    console.log('Swiped down');
+                }
+                else{
+                    console.log('Swiped up');
+                }
+            }
+        }
     }
-    else if(tower.t_type === 'refection_tower'){
+}
+/*gameplayState.prototype.over = function(tower){
+    if(tower.t_type === 'refection_tower'){
         if(tower.dir === 0){
             tower.dir++;
             tower.loadTexture('LR');
@@ -124,6 +213,28 @@ gameplayState.prototype.over = function(tower){
             tower.update();
         }
     }
+    else if(tower.t_type === 'mountain'){
+        tower.tint = 0xff00ff;
+    }
+}*/
+
+gameplayState.prototype.over = function(tower){
+    cur_over = tower;
+    on_swipe = true;
+    console.log(cur_over);
+}
+gameplayState.prototype.out = function(tower){
+    on_swipe = false;
+    console.log(on_swipe);
 }
 gameplayState.prototype.update = function(){
+    if (this.mouseIsDown == true) {
+        //get the distance between the start and end point
+        var distX = Math.abs(game.input.x - this.startX);
+        var distY = Math.abs(game.input.y - this.startY);
+        //if the distance is greater than 50 pixels then a swipe has happened
+        if (distX > 50) {
+            this.swipeDone(cur_over);
+        }
+    }
 };
