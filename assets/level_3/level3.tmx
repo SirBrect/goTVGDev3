@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="20" height="9" tilewidth="120" tileheight="120" infinite="0" nextobjectid="109">
- <tileset firstgid="1" source="C:/Users/jiayao/Desktop/maplayouts.tsx"/>
- <tileset firstgid="20" source="C:/Users/jiayao/Desktop/objects.tsx"/>
+ <tileset firstgid="1" source="../assets/level_1/maplayouts.json"/>
+ <tileset firstgid="20" source="../assets/level_1/objects.json"/>
  <tileset firstgid="65" source="C:/Users/jiayao/Desktop/4-Way Cell Tower.tsx"/>
- <tileset firstgid="74" source="4-Way Cell Tower.tsx"/>
+ <tileset firstgid="74" source="../assets/level_1/4-Way Cell Tower.json"/>
+ <tileset firstgid="83" source="../assets/level_1/tree.json"/>
  <layer name="ground" width="20" height="9">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
