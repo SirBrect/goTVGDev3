@@ -1,16 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="20" height="9" tilewidth="120" tileheight="120" infinite="0" nextobjectid="1">
- <layer name="Tile Layer 1" width="20" height="9">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="20" height="9" tilewidth="120" tileheight="120" infinite="0" nextobjectid="109">
+ <tileset firstgid="1" source="C:/Users/jiayao/Desktop/maplayouts.tsx"/>
+ <tileset firstgid="20" source="C:/Users/jiayao/Desktop/objects.tsx"/>
+ <tileset firstgid="65" source="C:/Users/jiayao/Desktop/4-Way Cell Tower.tsx"/>
+ <tileset firstgid="74" source="4-Way Cell Tower.tsx"/>
+ <layer name="ground" width="20" height="9">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,2147483655,1610612744,1610612744,1610612744,7,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,536870919,536870920,536870920,536870920,1073741831,1,1,1,1,1,1,1
 </data>
  </layer>
+ <layer name="Road" width="20" height="9">
+  <data encoding="csv">
+1610612800,62,62,62,63,0,0,0,0,0,0,0,0,0,0,63,63,62,62,64,
+1610612798,0,0,0,1610612798,0,0,0,0,0,0,0,0,0,0,1610612798,1610612798,0,0,1610612798,
+1610612798,0,0,0,3221225536,62,62,62,1610612743,1610612744,1610612744,7,62,62,62,1073741888,0,0,0,1610612798,
+1610612798,0,0,0,0,0,0,0,2147483657,10,10,9,0,0,0,0,0,0,0,1610612798,
+1610612798,0,0,0,0,0,0,0,536870919,536870920,536870920,1073741831,0,0,0,0,0,0,0,1610612798,
+1610612798,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1610612798,
+1610612798,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1610612798,
+1610612798,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1610612798,
+3221225536,62,62,62,62,62,62,62,0,0,0,0,0,62,62,62,62,62,62,2684354624
+</data>
+ </layer>
+ <layer name="reference" width="20" height="9">
+  <data encoding="csv">
+69,0,0,69,0,78,3221225479,2684354568,2684354568,2684354568,2684354568,2684354568,2684354568,2684354567,78,0,69,0,0,69,
+0,60,60,25,0,78,41,35,41,35,78,35,41,35,78,0,0,60,60,0,
+0,60,60,25,0,0,0,0,0,0,0,0,0,0,0,0,65,60,60,0,
+69,55,43,65,60,69,49,49,0,0,0,0,49,49,0,0,69,60,60,0,
+0,51,39,33,51,69,69,69,0,0,0,0,69,55,55,55,69,60,60,0,
+0,60,60,49,60,29,29,29,69,43,37,43,69,25,0,25,69,60,60,0,
+0,60,60,49,60,29,29,29,69,43,37,43,2147483675,2147483675,27,0,69,60,60,0,
+0,60,60,49,60,69,69,69,0,0,0,0,0,2147483677,2147483677,2147483677,69,60,60,0,
+0,0,0,69,0,69,0,0,0,0,65,0,0,0,0,0,69,0,0,69
+</data>
+ </layer>
+ <objectgroup name="trees">
+  <object id="1" type="tree" x="120" y="120" width="120" height="120"/>
+  <object id="2" type="tree" x="120" y="240" width="120" height="120"/>
+  <object id="3" type="tree" x="240" y="240" width="120" height="120"/>
+  <object id="4" type="tree" x="240" y="120" width="120" height="120"/>
+  <object id="5" type="tree" x="240" y="600" width="120" height="120"/>
+  <object id="6" type="tree" x="120" y="600" width="120" height="120"/>
+  <object id="7" type="tree" x="120" y="720" width="120" height="120"/>
+  <object id="8" type="tree" x="120" y="840" width="120" height="120"/>
+  <object id="9" type="tree" x="240" y="840" width="120" height="120"/>
+  <object id="10" type="tree" x="240" y="720" width="120" height="120"/>
+  <object id="11" type="tree" x="480" y="720" width="120" height="120"/>
+  <object id="12" type="tree" x="480" y="600" width="120" height="120"/>
+  <object id="13" type="tree" x="480" y="840" width="120" height="120"/>
+  <object id="14" type="tree" x="480" y="360" width="120" height="120"/>
+  <object id="15" type="tree" x="2040" y="120" width="120" height="120"/>
+  <object id="16" type="tree" x="2040" y="360" width="120" height="120"/>
+  <object id="17" type="tree" x="2040" y="240" width="120" height="120"/>
+  <object id="18" type="tree" x="2040" y="480" width="120" height="120"/>
+  <object id="19" type="tree" x="2040" y="600" width="120" height="120"/>
+  <object id="20" type="tree" x="2040" y="720" width="120" height="120"/>
+  <object id="21" type="tree" x="2040" y="840" width="120" height="120"/>
+  <object id="22" type="tree" x="2160" y="840" width="120" height="120"/>
+  <object id="23" type="tree" x="2160" y="720" width="120" height="120"/>
+  <object id="24" type="tree" x="2160" y="600" width="120" height="120"/>
+  <object id="25" type="tree" x="2160" y="480" width="120" height="120"/>
+  <object id="26" type="tree" x="2160" y="360" width="120" height="120"/>
+  <object id="27" type="tree" x="2160" y="240" width="120" height="120"/>
+  <object id="28" type="tree" x="2160" y="120" width="120" height="120"/>
+  <object id="29" type="tree" x="2160" y="120" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="reflection_tower">
+  <object id="30" type="reflection_tower" x="600" y="120" width="120" height="120"/>
+  <object id="32" type="reflection_tower" x="600" y="0" width="120" height="120"/>
+  <object id="33" type="reflection_tower" x="360" y="0" width="120" height="120"/>
+  <object id="34" type="reflection_tower" x="0" y="0" width="120" height="120"/>
+  <object id="35" type="reflection_tower" x="0" y="360" width="120" height="120"/>
+  <object id="36" type="reflection_tower" x="600" y="360" width="120" height="120"/>
+  <object id="37" type="reflection_tower" x="600" y="480" width="120" height="120"/>
+  <object id="38" type="reflection_tower" x="720" y="480" width="120" height="120"/>
+  <object id="39" type="reflection_tower" x="840" y="480" width="120" height="120"/>
+  <object id="40" type="reflection_tower" x="960" y="600" width="120" height="120"/>
+  <object id="41" type="reflection_tower" x="960" y="720" width="120" height="120"/>
+  <object id="42" type="reflection_tower" x="840" y="840" width="120" height="120"/>
+  <object id="43" type="reflection_tower" x="720" y="840" width="120" height="120"/>
+  <object id="44" type="reflection_tower" x="600" y="840" width="120" height="120"/>
+  <object id="45" type="reflection_tower" x="360" y="960" width="120" height="120"/>
+  <object id="46" type="reflection_tower" x="600" y="960" width="120" height="120"/>
+  <object id="47" type="reflection_tower" x="1920" y="960" width="120" height="120"/>
+  <object id="48" type="reflection_tower" x="1920" y="840" width="120" height="120"/>
+  <object id="49" type="reflection_tower" x="1440" y="600" width="120" height="120"/>
+  <object id="50" type="reflection_tower" x="1440" y="480" width="120" height="120"/>
+  <object id="51" type="reflection_tower" x="1200" y="120" width="120" height="120"/>
+  <object id="52" type="reflection_tower" x="1680" y="120" width="120" height="120"/>
+  <object id="53" type="reflection_tower" x="1680" y="0" width="120" height="120"/>
+  <object id="54" type="reflection_tower" x="1920" y="0" width="120" height="120"/>
+  <object id="55" type="reflection_tower" x="2280" y="0" width="120" height="120"/>
+  <object id="56" type="reflection_tower" x="2280" y="960" width="120" height="120"/>
+  <object id="57" type="reflection_tower" x="1920" y="720" width="120" height="120"/>
+  <object id="58" type="reflection_tower" x="1920" y="600" width="120" height="120"/>
+  <object id="59" type="reflection_tower" x="1920" y="480" width="120" height="120"/>
+  <object id="60" type="reflection_tower" x="1920" y="360" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="blue_tower">
+  <object id="61" type="blue_tower" x="1200" y="960" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="blue_houses">
+  <object id="62" type="blue_house_3" x="1320" y="120" width="120" height="120"/>
+  <object id="63" type="blue_house_3" x="1560" y="120" width="120" height="120"/>
+  <object id="64" type="blue_house_3" x="1080" y="120" width="120" height="120"/>
+  <object id="65" type="blue_house_3" x="840" y="120" width="120" height="120"/>
+  <object id="66" type="blue_house_4" x="720" y="120" width="120" height="120"/>
+  <object id="67" type="blue_house_4" x="960" y="120" width="120" height="120"/>
+  <object id="68" type="blue_house_4" x="1440" y="120" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="yellow_tower">
+  <object id="69" type="yellow_tower" x="360" y="360" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="yellow_houses">
+  <object id="70" type="yellow_houses_4" x="240" y="360" width="120" height="120"/>
+  <object id="71" type="yellow_houses_4" x="1080" y="600" width="120" height="120"/>
+  <object id="72" type="yellow_houses_4" x="1080" y="720" width="120" height="120"/>
+  <object id="73" type="yellow_houses_4" x="1320" y="720" width="120" height="120"/>
+  <object id="74" type="yellow_houses_4" x="1320" y="600" width="120" height="120"/>
+  <object id="75" type="yellow_houses_3" x="1200" y="600" width="120" height="120"/>
+  <object id="76" type="yellow_houses_3" x="1200" y="720" width="120" height="120"/>
+  <object id="77" type="yellow_houses_5" x="840" y="360" width="120" height="120"/>
+  <object id="78" type="yellow_houses_5" x="720" y="360" width="120" height="120"/>
+  <object id="79" type="yellow_houses_5" x="360" y="600" width="120" height="120"/>
+  <object id="80" type="yellow_houses_5" x="360" y="720" width="120" height="120"/>
+  <object id="81" type="yellow_houses_5" x="360" y="840" width="120" height="120"/>
+  <object id="82" type="yellow_houses_5" x="1440" y="360" width="120" height="120"/>
+  <object id="83" type="yellow_houses_5" x="1560" y="360" width="120" height="120"/>
+  <object id="84" type="yellow_houses_6" x="1680" y="480" width="120" height="120"/>
+  <object id="85" type="yellow_houses_6" x="1560" y="480" width="120" height="120"/>
+  <object id="86" type="yellow_houses_6" x="1800" y="480" width="120" height="120"/>
+  <object id="87" type="yellow_houses_1" x="1800" y="600" width="120" height="120"/>
+  <object id="88" type="yellow_houses_1" x="1560" y="600" width="120" height="120"/>
+  <object id="89" type="yellow_houses_2" x="1560" y="720" width="120" height="120"/>
+  <object id="90" type="yellow_houses_2" x="1440" y="720" width="120" height="120"/>
+  <object id="91" type="yellow_houses_2" x="1680" y="720" width="120" height="120"/>
+  <object id="92" type="yellow_houses_6" x="120" y="360" width="120" height="120"/>
+  <object id="93" type="yellow_houses_1" x="360" y="240" width="120" height="120"/>
+  <object id="94" type="yellow_houses_1" x="360" y="120" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="red_tower">
+  <object id="95" type="red_tower" x="1920" y="240" width="120" height="120"/>
+ </objectgroup>
+ <objectgroup name="red_houses_2">
+  <object id="96" type="red_house_2" x="1560" y="840" width="120" height="120"/>
+  <object id="97" type="red_house_2" x="1680" y="840" width="120" height="120"/>
+  <object id="98" type="red_house_2" x="1800" y="840" width="120" height="120"/>
+  <object id="99" type="red_house_2" x="840" y="720" width="120" height="120"/>
+  <object id="100" type="red_house_2" x="840" y="600" width="120" height="120"/>
+  <object id="101" type="red_house_2" x="720" y="600" width="120" height="120"/>
+  <object id="102" type="red_house_2" x="720" y="720" width="120" height="120"/>
+  <object id="103" type="red_house_2" x="600" y="720" width="120" height="120"/>
+  <object id="104" type="red_house_2" x="600" y="600" width="120" height="120"/>
+  <object id="105" type="red_house_6" x="480" y="480" width="120" height="120"/>
+  <object id="106" type="red_house_6" x="120" y="480" width="120" height="120"/>
+  <object id="107" type="red_house_3" x="360" y="480" width="120" height="120"/>
+  <object id="108" type="red_house_4" x="240" y="480" width="120" height="120"/>
+ </objectgroup>
 </map>
