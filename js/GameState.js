@@ -10,16 +10,16 @@ let directions = {
 };
 
 let powerLevels = {
-	LOW:5;
-	MED:10;
-	HIGH:15;
-	GOKU:9001;
+	LOW:5,
+	MED:10,
+	HIGH:15,
+	GOKU:9001
 };
 
 let colors = {
-	RED:0;
-	YELLOW:1;
-	BLUE:2;
+	RED:0,
+	YELLOW:1,
+	BLUE:2
 };
 
 let nextPosition = function(dir, distance){
@@ -52,34 +52,34 @@ class Tower{
 		this.createBeam(x, y, direction, color, power);
 	}
 
-	function getDirection(){
+	getDirection(){
 		return this.direction;
 	}
 
-	function changeDirection(){
+	changeDirection(){
 		this.direction += 1;
 		if(this.direction > 3) this.direction = directions.UP;
 	}
 
-	function getPower(){
+	getPower(){
 		return this.power;
 	}
 
-	function changePower(){
+	changePower(){
 		this.power += 5;
 		if(this.power > powerLevels.HIGH) this.power = powerLevels.LOW;
 	}
 
-	function getColor(){
+	getColor(){
 		return this.color;
 	}
 
-	function changeColor(){
+	changeColor(){
 		this.color += 1;
 		if(this.color > 2) this.color = colors.RED;
 	}
 
-	function createBeam(direction, color, power){
+	createBeam(direction, color, power){
 		//Erase the old beam
 		for(entry in this.beam){
 			delete entry;
@@ -108,15 +108,15 @@ class House{
 		this.powered = powered;
 	}
 
-	function getColor(){
+	getColor(){
 		return this.color;
 	}
 
-	function getPowered(){
+	getPowered(){
 		return this.powered;
 	}
 
-	function changePower(){
+	changePower(){
 		this.powered = !(this.powered);
 	}
 }
@@ -129,15 +129,15 @@ class Beam{
 		this.color = color;
 	}
 
-	function getDirection(){
+	getDirection(){
 		return this.direction;
 	}
 
-	function getColor(){
+	getColor(){
 		return this.color;
 	}
 
-	function changeColor(color){
+	changeColor(color){
 		this.color = color;
 	}
 }
