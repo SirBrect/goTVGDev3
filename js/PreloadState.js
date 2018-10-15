@@ -13,9 +13,9 @@ preloadState.prototype.preload = function(){
     //  Next we load the tileset. This is just an image, loaded in via the normal way we load images:
 
     game.load.image('tiles', 'assets/maplayouts.png');
-    game.load.spritesheet('4way_yellow','assets/4-way_cell_tower_yellow.png',120,120,8);
-    game.load.spritesheet('4way_blue','assets/4-way_cell_tower_blue.png',120,120,8);
-    game.load.spritesheet('4way_red','assets/4-way_cell_tower_pink.png',120,120,8);
+    game.load.spritesheet('yellow_t','assets/4-way_cell_tower_yellow.png',120,120,8);
+    game.load.spritesheet('blue_t','assets/4-way_cell_tower_blue.png',120,120,8);
+    game.load.spritesheet('red_t','assets/4-way_cell_tower_pink.png',120,120,8);
 
     game.load.image('LL', 'assets/Reflect Tower LL.png');
     game.load.image('LR', 'assets/Reflect Tower LR.png');
@@ -28,6 +28,8 @@ preloadState.prototype.preload = function(){
     //Need to be replaced in time
     game.load.image('r_house','assets/houseright.png');
     game.load.image('b_house','assets/colorful_building.png');
+
+    game.load.spritesheet('beam', 'assets/signalsprite.png',120,120,15);
 };
 
 preloadState.prototype.create = function(){
