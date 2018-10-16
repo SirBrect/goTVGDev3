@@ -21,6 +21,6 @@ mainMenuState.prototype.create = function(){
 }
 
 let buttonClick = function(button){
-	game.state.start("Level One");
+	game.state.start(button.name);
 }
 
