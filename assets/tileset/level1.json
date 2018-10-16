@@ -633,7 +633,7 @@
                  "type":"refection_tower",
                  "visible":true,
                  "width":120,
-                 "x":1200,
+                 "x":1187.87878787879,
                  "y":120
                 }, 
                 {
@@ -644,8 +644,8 @@
                  "type":"refection_tower",
                  "visible":true,
                  "width":120,
-                 "x":1200,
-                 "y":240
+                 "x":1175.75757575758,
+                 "y":246.060606060606
                 }, 
                 {
                  "height":120,
@@ -711,7 +711,7 @@
                  "visible":true,
                  "width":120,
                  "x":1320,
-                 "y":240
+                 "y":249.090909090909
                 }, 
                 {
                  "height":120,

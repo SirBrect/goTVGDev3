@@ -6,7 +6,9 @@ var cur_over;
 var on_swipe;
 var n_beam;
 var fired;
+var win_num;
 lvl2.prototype.create = function(){
+    win_num = 0;
     fired = false;
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.input.onUp.add(this.mouseUp, this);
@@ -309,6 +311,7 @@ lvl2.prototype.collisionCallback = function(spriteA, spriteB) {
     else if(spriteB.t_type === 'house'){
         if(spriteA.col === spriteB.col){
             if(spriteB.on === false){
+                win_num++;
                 spriteB.on = true;
                 spriteB.alpha = 1.0;
                 spriteB.animations.play('on');
@@ -422,7 +425,9 @@ lvl2.prototype.update = function(){
     game.physics.arcade.overlap(n_beam,this.r_houses,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.b_houses,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.y_houses,this.collisionCallback,null, this);
-
+    if(win_num === 43){
+        game.state.start("Win");
+    }
 
     if (this.mouseIsDown == true) {
         //get the distance between the start and end point
