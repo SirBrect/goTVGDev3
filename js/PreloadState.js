@@ -11,6 +11,9 @@ preloadState.prototype.preload = function(){
     game.load.spritesheet("buttons", "assets/buttons.png", 18, 9);
 
 	game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap("level one map", 'assets/tileset/level1.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap("level two map", 'assets/tileset/level2.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap("level three map", 'assets/tileset/level3.json', null, Phaser.Tilemap.TILED_JSON);
 
     //  Next we load the tileset. This is just an image, loaded in via the normal way we load images:
 

@@ -1,5 +1,6 @@
 let gameplayState = function(){
 	this.score = 0;
+    gameplayState.levelCount = gameplayState.levelCount ? gameplayState.levelCount + 1 : 1;
 };
 
 let directions = {
@@ -28,7 +29,20 @@ var on_swipe;
 gameplayState.prototype.create = function(){
     game.input.onUp.add(this.mouseUp, this);
     game.input.onDown.add(this.mouseDown, this);
-    map = game.add.tilemap('map');
+    switch(this.levelCount){
+        case 1:
+            map = game.add.tilemap("level one map");
+            break;
+        case 2:
+            map = game.add.tilemap("level two map");
+            break;
+        case 3:
+            map = game.add.tilemap("level three map");
+            break;
+        default:
+            map = game.add.tilemap("level one map");
+    }
+    
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
     
     layer = map.createLayer('ground');
