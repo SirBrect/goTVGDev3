@@ -2,23 +2,6 @@ let lvl2 = function(){
 	this.score = 0;
 };
 
-let directions = {
-	UP:0,
-	RIGHT:1,
-	DOWN:2,
-    LEFT:3,
-    UPRIGHT:4,
-    UPLEFT:5,
-    DOWNLEFT:6,
-    DOWNRIGHT:7 
-};
-
-let colors = {
-    REF:0,
-    RED:1,
-    YELLOW:2,
-    BLUE:3
-}
 var cur_over;
 var on_swipe;
 var n_beam;
