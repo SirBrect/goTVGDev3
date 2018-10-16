@@ -6,9 +6,11 @@ let preloadState = function(){
 
 preloadState.prototype.preload = function(){
 	game.load.image("play button", "assets/PlayButton.png");
-    game.load.image("win screen", "assets/WinScreen.png");
-    
-	game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
+	game.load.image("win screen", "assets/WinScreen.png");
+
+	game.load.tilemap('level1', 'assets/tileset/level1.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('level2','assets/tileset/level2.jason',null,Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('level3', 'assets/tileset/level3.jason',null,Phaser.Tilemap.TILED_JSON);
 
     //  Next we load the tileset. This is just an image, loaded in via the normal way we load images:
 

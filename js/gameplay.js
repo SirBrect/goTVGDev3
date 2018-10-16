@@ -28,7 +28,7 @@ gameplayState.prototype.create = function(){
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.input.onUp.add(this.mouseUp, this);
     game.input.onDown.add(this.mouseDown, this);
-    map = game.add.tilemap('map');
+    map = game.add.tilemap('level1');
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
 
     layer = map.createLayer('ground');
