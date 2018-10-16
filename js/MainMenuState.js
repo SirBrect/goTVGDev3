@@ -3,6 +3,7 @@ let mainMenuState = function(){
 };
 
 mainMenuState.prototype.create = function(){
+
 	game.add.sprite(0, 0, "main menu screen");
 	let lvlOneButton = game.add.button(game.world.centerX - 128, game.world.centerY + 128, "buttons", buttonClick, this, 0, 0, 0, 0);
 	lvlOneButton.scale.setTo(2,2);

@@ -1,36 +1,37 @@
-let lvl2 = function(){
+let gameplayState = function(){
 	this.score = 0;
 };
 
+let directions = {
+	UP:0,
+	RIGHT:1,
+	DOWN:2,
+    LEFT:3,
+    UPRIGHT:4,
+    UPLEFT:5,
+    DOWNLEFT:6,
+    DOWNRIGHT:7 
+};
+
+let colors = {
+    REF:0,
+    RED:1,
+    YELLOW:2,
+    BLUE:3
+}
 var cur_over;
 var on_swipe;
 var n_beam;
 var fired;
-var win_num;
-lvl2.prototype.create = function(){
-    win_num = 0;
+gameplayState.prototype.create = function(){
     fired = false;
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.input.onUp.add(this.mouseUp, this);
     game.input.onDown.add(this.mouseDown, this);
-    map = game.add.tilemap('level2');
+    map = game.add.tilemap('level1');
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
 
     layer = map.createLayer('ground');
-    music1 = game.add.audio('pop');
-    music2 = game.add.audio('rock');
-    music3 = game.add.audio('rap');
-    music4 = game.add.audio('statictrans');
-    music3.volume += 15;
-    music1.play();
-    music1.pause();
-    music2.play();
-    music2.pause();
-    music3.play();
-    music3.pause();
-    
-
-
 
     this.b_towers = game.add.group();
     this.r_towers = game.add.group();
@@ -183,7 +184,7 @@ lvl2.prototype.create = function(){
 
     layer.resizeWorld();
 };
-lvl2.prototype.mouseDown = function() {
+gameplayState.prototype.mouseDown = function() {
     //set the mouseIsDown to true
     this.mouseIsDown = true;
     //
@@ -194,10 +195,10 @@ lvl2.prototype.mouseDown = function() {
     this.startX = game.input.x;
     this.startY = game.input.y;
 };
-lvl2.prototype.mouseUp = function() {
+gameplayState.prototype.mouseUp = function() {
     this.mouseIsDown = false;
 };
-lvl2.prototype.swipeDone = function(cur_over) {
+gameplayState.prototype.swipeDone = function(cur_over) {
     //get the ending point
     var endX = game.input.x;
     var endY = game.input.y;
@@ -266,36 +267,21 @@ lvl2.prototype.swipeDone = function(cur_over) {
         }
     }
 };
-lvl2.prototype.createBeam = function(tower){
+gameplayState.prototype.createBeam = function(tower){
     if(fired === false){
         currentX = tower.x;
         currentY = tower.y;
         if(tower.col === colors.RED){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',9);
             n_beam.animations.add('beamer',[9,10,11,12,13,14],13,true);
-            music4.play();
-            music2.pause();
-            music3.pause();
-            music1.resume();
-            console.log('sound played');
         }
         else if(tower.col === colors.BLUE){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',0);
             n_beam.animations.add('beamer',[0,1,2,3,4,5],13,true);
-            music4.play();
-            music1.pause();
-            music3.pause();
-            music2.resume();
-            console.log('sound played');
         }
         else if(tower.col === colors.YELLOW){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',16);
             n_beam.animations.add('beamer',[16,17,18,19,20,21],13,true);
-            music4.play();
-            music1.pause();
-            music2.pause();
-            music3.resume();
-            console.log('sound played');
         }
         n_beam.col = tower.col;
         n_beam.dir = tower.dir;
@@ -328,7 +314,7 @@ lvl2.prototype.createBeam = function(tower){
     }
 }
 
-lvl2.prototype.collisionCallback = function(spriteA, spriteB) {
+gameplayState.prototype.collisionCallback = function(spriteA, spriteB) {
     if(spriteB.t_type === 'tree'){
         spriteA.kill();
         fired = false;
@@ -340,7 +326,6 @@ lvl2.prototype.collisionCallback = function(spriteA, spriteB) {
     else if(spriteB.t_type === 'house'){
         if(spriteA.col === spriteB.col){
             if(spriteB.on === false){
-                win_num++;
                 spriteB.on = true;
                 spriteB.alpha = 1.0;
                 spriteB.animations.play('on');
@@ -436,15 +421,15 @@ lvl2.prototype.collisionCallback = function(spriteA, spriteB) {
         fired = false;
     }
 }
-lvl2.prototype.over = function(tower){
+gameplayState.prototype.over = function(tower){
     cur_over = tower;
     on_swipe = true;
     
 }
-lvl2.prototype.out = function(tower){
+gameplayState.prototype.out = function(tower){
     on_swipe = false;
 }
-lvl2.prototype.update = function(){
+gameplayState.prototype.update = function(){
     game.physics.arcade.overlap(n_beam,this.trees,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.scrapers,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.mountains,this.collisionCallback,null, this);
@@ -454,9 +439,7 @@ lvl2.prototype.update = function(){
     game.physics.arcade.overlap(n_beam,this.r_houses,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.b_houses,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.y_houses,this.collisionCallback,null, this);
-    if(win_num === 43){
-        game.state.start("Win");
-    }
+
 
     if (this.mouseIsDown == true) {
         //get the distance between the start and end point

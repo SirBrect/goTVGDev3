@@ -36,6 +36,8 @@ lvl1.prototype.create = function(){
 
     layer = map.createLayer('ground');
 
+
+
     this.b_towers = game.add.group();
     this.r_towers = game.add.group();
     this.y_towers = game.add.group();
@@ -157,6 +159,9 @@ lvl1.prototype.create = function(){
         }
     }
 
+    music1 = game.add.audio('pop');
+  
+
     game.physics.arcade.enable(this.y_houses);
     this.y_houses.enableBody = true;
     this.y_houses.physicsBodyType = Phaser.Physics.ARCADE;
@@ -248,6 +253,8 @@ lvl1.prototype.swipeDone = function(cur_over) {
                     console.log('Swiped right');
                     cur_over.dir = directions.RIGHT;
                     this.createBeam(cur_over);
+
+
                 }
                 else{
                     console.log('Swiped Left');
@@ -271,6 +278,7 @@ lvl1.prototype.swipeDone = function(cur_over) {
     }
 };
 lvl1.prototype.createBeam = function(tower){
+
     if(fired === false){
         currentX = tower.x;
         currentY = tower.y;
@@ -446,6 +454,8 @@ lvl1.prototype.out = function(tower){
     on_swipe = false;
 }
 lvl1.prototype.update = function(){
+
+
     game.physics.arcade.overlap(n_beam,this.trees,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.scrapers,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.mountains,this.collisionCallback,null, this);
