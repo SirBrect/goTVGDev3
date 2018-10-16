@@ -1494,7 +1494,7 @@
         }, 
         {
          "firstgid":102,
-         "source":"..\/art assets\/tree.tsx"
+         "source":"level_1\/tree.tsx"
         }],
  "tilewidth":120,
  "type":"map",
