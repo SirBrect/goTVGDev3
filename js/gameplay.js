@@ -29,6 +29,7 @@ var on_swipe;
 gameplayState.prototype.create = function(){
     game.input.onUp.add(this.mouseUp, this);
     game.input.onDown.add(this.mouseDown, this);
+    
     switch(this.levelCount){
         case 1:
             map = game.add.tilemap("level one map");
@@ -40,9 +41,9 @@ gameplayState.prototype.create = function(){
             map = game.add.tilemap("level three map");
             break;
         default:
-            map = game.add.tilemap("level one map");
+            map = game.add.tilemap("map");
     }
-    
+    //map = game.add.tilemap("map");
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
     
     layer = map.createLayer('ground');
