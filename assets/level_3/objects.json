@@ -1,0 +1,12 @@
+{ "columns":45,
+ "image":"..\/objects.png",
+ "imageheight":120,
+ "imagewidth":5400,
+ "margin":0,
+ "name":"objects",
+ "spacing":0,
+ "tilecount":45,
+ "tileheight":120,
+ "tilewidth":120,
+ "type":"tileset"
+}

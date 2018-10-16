@@ -1,0 +1,12 @@
+{ "columns":1,
+ "image":"..\/tree.png",
+ "imageheight":120,
+ "imagewidth":120,
+ "margin":0,
+ "name":"tree",
+ "spacing":0,
+ "tilecount":1,
+ "tileheight":120,
+ "tilewidth":120,
+ "type":"tileset"
+}
