@@ -9,8 +9,8 @@ preloadState.prototype.preload = function(){
 	game.load.image("win screen", "assets/WinScreen.png");
 
 	game.load.tilemap('level1', 'assets/tileset/level1.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.tilemap('level2','assets/tileset/level2.json',null,Phaser.Tilemap.TILED_JSON);
-    game.load.tilemap('level3', 'assets/tileset/level3.json',null,Phaser.Tilemap.TILED_JSON);
+    //game.load.tilemap('level2','assets/tileset/level2.jason',null,Phaser.Tilemap.TILED_JSON);
+    //ame.load.tilemap('level3', 'assets/tileset/level3.jason',null,Phaser.Tilemap.TILED_JSON);
 
     //  Next we load the tileset. This is just an image, loaded in via the normal way we load images:
 
