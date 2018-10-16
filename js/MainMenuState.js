@@ -13,8 +13,8 @@ mainMenuState.prototype.create = function(){
 	let lvlThreeButton = game.add.button(game.world.centerX+256, game.world.centerY + 128, "buttons", buttonClick, this, 2, 2, 2, 2);
 	lvlThreeButton.scale.setTo(2,2);
 	lvlOneButton.name = "Level Three";
-	let exitButton = game.add.button(game.world.centerX + 448, game.world.centerY + 128, "buttons", exitButtonClick, this, 3, 3, 3, 3);
-	exitButton.scale.setTo(2,2);
+	/*let exitButton = game.add.button(game.world.centerX + 448, game.world.centerY + 128, "buttons", exitButtonClick, this, 3, 3, 3, 3);
+	exitButton.scale.setTo(2,2);*/
 
 
 	//button = game.add.button(game.world.centerX - 200, game.world.centerY -150, "play button", actionOnClick, this);

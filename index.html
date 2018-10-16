@@ -7,7 +7,10 @@
 	<script type="text/javascript" src="js/PreloadState.js"></script>
 	<script type="text/javascript" src="js/MainMenuState.js"></script>
     <script type="text/javascript" src="js/WinState.js"></script>
-    <script type="text/javascript" src="js/gameplay.js"></script>
+    <script type="text/javascript" src="js/lvl1.js"></script>
+    <script type="text/javascript" src="js/lvl2.js"></script>
+    <script type="text/javascript" src="js/lvl3.js"></script>
+
 	
     <style type="text/css">
         body {
@@ -24,7 +27,10 @@
     game.state.add("Preload", preloadState);
     game.state.add("Main Menu", mainMenuState);
     game.state.add("Win", WinState);
-    game.state.add("Game", gameplayState);
+    game.state.add("Level One", lvl1);
+    game.state.add("Level Two", lvl2);
+    game.state.add("Level Three", lvl3);
+
     game.state.start("Preload");
 
 </script>

@@ -1,4 +1,4 @@
-let gameplayState = function(){
+let lvl1 = function(){
 	this.score = 0;
 };
 
@@ -23,7 +23,7 @@ var cur_over;
 var on_swipe;
 var n_beam;
 var fired;
-gameplayState.prototype.create = function(){
+lvl1.prototype.create = function(){
     fired = false;
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.input.onUp.add(this.mouseUp, this);
@@ -184,7 +184,7 @@ gameplayState.prototype.create = function(){
 
     layer.resizeWorld();
 };
-gameplayState.prototype.mouseDown = function() {
+lvl1.prototype.mouseDown = function() {
     //set the mouseIsDown to true
     this.mouseIsDown = true;
     //
@@ -195,10 +195,10 @@ gameplayState.prototype.mouseDown = function() {
     this.startX = game.input.x;
     this.startY = game.input.y;
 };
-gameplayState.prototype.mouseUp = function() {
+lvl1.prototype.mouseUp = function() {
     this.mouseIsDown = false;
 };
-gameplayState.prototype.swipeDone = function(cur_over) {
+lvl1.prototype.swipeDone = function(cur_over) {
     //get the ending point
     var endX = game.input.x;
     var endY = game.input.y;
@@ -267,7 +267,7 @@ gameplayState.prototype.swipeDone = function(cur_over) {
         }
     }
 };
-gameplayState.prototype.createBeam = function(tower){
+lvl1.prototype.createBeam = function(tower){
     if(fired === false){
         currentX = tower.x;
         currentY = tower.y;
@@ -314,7 +314,7 @@ gameplayState.prototype.createBeam = function(tower){
     }
 }
 
-gameplayState.prototype.collisionCallback = function(spriteA, spriteB) {
+lvl1.prototype.collisionCallback = function(spriteA, spriteB) {
     if(spriteB.t_type === 'tree'){
         spriteA.kill();
         fired = false;
@@ -421,15 +421,15 @@ gameplayState.prototype.collisionCallback = function(spriteA, spriteB) {
         fired = false;
     }
 }
-gameplayState.prototype.over = function(tower){
+lvl1.prototype.over = function(tower){
     cur_over = tower;
     on_swipe = true;
     
 }
-gameplayState.prototype.out = function(tower){
+lvl1.prototype.out = function(tower){
     on_swipe = false;
 }
-gameplayState.prototype.update = function(){
+lvl1.prototype.update = function(){
     game.physics.arcade.overlap(n_beam,this.trees,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.scrapers,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.mountains,this.collisionCallback,null, this);
