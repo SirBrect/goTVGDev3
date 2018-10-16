@@ -1,4 +1,4 @@
-let lvl1 = function(){
+let gameplayState = function(){
 	this.score = 0;
 };
 
@@ -23,10 +23,7 @@ var cur_over;
 var on_swipe;
 var n_beam;
 var fired;
-var win_num;
-
-lvl1.prototype.create = function(){
-    win_num = 0;
+gameplayState.prototype.create = function(){
     fired = false;
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.input.onUp.add(this.mouseUp, this);
@@ -35,19 +32,6 @@ lvl1.prototype.create = function(){
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
 
     layer = map.createLayer('ground');
-
-    layer = map.createLayer('ground');
-    music1 = game.add.audio('pop');
-    music2 = game.add.audio('rock');
-    music3 = game.add.audio('rap');
-    music4 = game.add.audio('statictrans');
-    music3.volume += 15;
-    music1.play();
-    music1.pause();
-    music2.play();
-    music2.pause();
-    music3.play();
-    music3.pause();
 
     this.b_towers = game.add.group();
     this.r_towers = game.add.group();
@@ -170,9 +154,6 @@ lvl1.prototype.create = function(){
         }
     }
 
-    music1 = game.add.audio('pop');
-  
-
     game.physics.arcade.enable(this.y_houses);
     this.y_houses.enableBody = true;
     this.y_houses.physicsBodyType = Phaser.Physics.ARCADE;
@@ -203,7 +184,7 @@ lvl1.prototype.create = function(){
 
     layer.resizeWorld();
 };
-lvl1.prototype.mouseDown = function() {
+gameplayState.prototype.mouseDown = function() {
     //set the mouseIsDown to true
     this.mouseIsDown = true;
     //
@@ -214,10 +195,10 @@ lvl1.prototype.mouseDown = function() {
     this.startX = game.input.x;
     this.startY = game.input.y;
 };
-lvl1.prototype.mouseUp = function() {
+gameplayState.prototype.mouseUp = function() {
     this.mouseIsDown = false;
 };
-lvl1.prototype.swipeDone = function(cur_over) {
+gameplayState.prototype.swipeDone = function(cur_over) {
     //get the ending point
     var endX = game.input.x;
     var endY = game.input.y;
@@ -264,8 +245,6 @@ lvl1.prototype.swipeDone = function(cur_over) {
                     console.log('Swiped right');
                     cur_over.dir = directions.RIGHT;
                     this.createBeam(cur_over);
-
-
                 }
                 else{
                     console.log('Swiped Left');
@@ -288,38 +267,22 @@ lvl1.prototype.swipeDone = function(cur_over) {
         }
     }
 };
-lvl1.prototype.createBeam = function(tower){
-
+gameplayState.prototype.createBeam = function(tower){
     if(fired === false){
-        currentX = tower.centerX;
-        currentY = tower.centerY;
+        currentX = tower.x;
+        currentY = tower.y;
         if(tower.col === colors.RED){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',9);
             n_beam.animations.add('beamer',[9,10,11,12,13,14],13,true);
-            music4.play();
-            music2.pause();
-            music3.pause();
-            music1.resume();
-            console.log('sound played');
         }
         else if(tower.col === colors.BLUE){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',0);
             n_beam.animations.add('beamer',[0,1,2,3,4,5],13,true);
-            music4.play();
-            music1.pause();
-            music3.pause();
-            music2.resume();
-            console.log('sound played');
         }
         else if(tower.col === colors.YELLOW){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',16);
             n_beam.animations.add('beamer',[16,17,18,19,20,21],13,true);
-            music4.play();
-            music1.pause();
-            music2.pause();
-            music3.resume();
-            console.log('sound played');
-        } 
+        }
         n_beam.col = tower.col;
         n_beam.dir = tower.dir;
         game.physics.arcade.enable(n_beam);
@@ -332,15 +295,12 @@ lvl1.prototype.createBeam = function(tower){
         }
         else if(n_beam.dir === directions.LEFT){
             n_beam.body.velocity.x = -360;
-
         }
         else if(n_beam.dir === directions.RIGHT){
             n_beam.body.velocity.x = 360;
-
         }
         else if(n_beam.dir === directions.DOWN){
             n_beam.body.velocity.y = 360;
-
         }
         //game.physics.arcade.moveToXY(n_beam,0,tower.y,240);
         //n_beam.updateTransform();
@@ -354,7 +314,7 @@ lvl1.prototype.createBeam = function(tower){
     }
 }
 
-lvl1.prototype.collisionCallback = function(spriteA, spriteB) {
+gameplayState.prototype.collisionCallback = function(spriteA, spriteB) {
     if(spriteB.t_type === 'tree'){
         spriteA.kill();
         fired = false;
@@ -366,7 +326,6 @@ lvl1.prototype.collisionCallback = function(spriteA, spriteB) {
     else if(spriteB.t_type === 'house'){
         if(spriteA.col === spriteB.col){
             if(spriteB.on === false){
-                win_num ++;
                 spriteB.on = true;
                 spriteB.alpha = 1.0;
                 spriteB.animations.play('on');
@@ -462,17 +421,15 @@ lvl1.prototype.collisionCallback = function(spriteA, spriteB) {
         fired = false;
     }
 }
-lvl1.prototype.over = function(tower){
+gameplayState.prototype.over = function(tower){
     cur_over = tower;
     on_swipe = true;
     
 }
-lvl1.prototype.out = function(tower){
+gameplayState.prototype.out = function(tower){
     on_swipe = false;
 }
-lvl1.prototype.update = function(){
-
-
+gameplayState.prototype.update = function(){
     game.physics.arcade.overlap(n_beam,this.trees,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.scrapers,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.mountains,this.collisionCallback,null, this);
@@ -482,16 +439,14 @@ lvl1.prototype.update = function(){
     game.physics.arcade.overlap(n_beam,this.r_houses,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.b_houses,this.collisionCallback,null, this);
     game.physics.arcade.overlap(n_beam,this.y_houses,this.collisionCallback,null, this);
-    if(win_num === 31){
-        game.state.start("Win");
-    }
+
 
     if (this.mouseIsDown == true) {
         //get the distance between the start and end point
         var distX = Math.abs(game.input.x - this.startX);
         var distY = Math.abs(game.input.y - this.startY);
         //if the distance is greater than 50 pixels then a swipe has happened
-        if (distX > 50 || distY > 50) {
+        if (distX > 50) {
             this.swipeDone(cur_over);
         }
     }

@@ -17,6 +17,20 @@ lvl2.prototype.create = function(){
     map.addTilesetImage('maplayouts', 'tiles', 120, 120);
 
     layer = map.createLayer('ground');
+    music1 = game.add.audio('pop');
+    music2 = game.add.audio('rock');
+    music3 = game.add.audio('rap');
+    music4 = game.add.audio('statictrans');
+    music3.volume += 15;
+    music1.play();
+    music1.pause();
+    music2.play();
+    music2.pause();
+    music3.play();
+    music3.pause();
+    
+
+
 
     this.b_towers = game.add.group();
     this.r_towers = game.add.group();
@@ -259,14 +273,29 @@ lvl2.prototype.createBeam = function(tower){
         if(tower.col === colors.RED){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',9);
             n_beam.animations.add('beamer',[9,10,11,12,13,14],13,true);
+            music4.play();
+            music2.pause();
+            music3.pause();
+            music1.resume();
+            console.log('sound played');
         }
         else if(tower.col === colors.BLUE){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',0);
             n_beam.animations.add('beamer',[0,1,2,3,4,5],13,true);
+            music4.play();
+            music1.pause();
+            music3.pause();
+            music2.resume();
+            console.log('sound played');
         }
         else if(tower.col === colors.YELLOW){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',16);
             n_beam.animations.add('beamer',[16,17,18,19,20,21],13,true);
+            music4.play();
+            music1.pause();
+            music2.pause();
+            music3.resume();
+            console.log('sound played');
         }
         n_beam.col = tower.col;
         n_beam.dir = tower.dir;

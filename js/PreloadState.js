@@ -12,6 +12,12 @@ preloadState.prototype.preload = function(){
     game.load.tilemap('level2','assets/tileset/level2.json',null,Phaser.Tilemap.TILED_JSON);
     game.load.tilemap('level3', 'assets/tileset/level3.json',null,Phaser.Tilemap.TILED_JSON);
 
+    game.load.audio('pop', 'sound/poppixel.mp3');
+    game.load.audio('rap', 'sound/rappixel.mp3');
+    game.load.audio('rock', 'sound/rockpixel.mp3');
+    game.load.audio('statictrans', 'sound/statictrans.mp3');
+
+
     //  Next we load the tileset. This is just an image, loaded in via the normal way we load images:
 
     game.load.image('tiles', 'assets/maplayouts.png');

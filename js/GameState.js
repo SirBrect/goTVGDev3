@@ -122,11 +122,12 @@ class House{
 }
 
 class Beam{
-	constructor(x, y, direction, color){
+	constructor(x, y, direction, color,sound){
 		this.x = x;
 		this.y = y;
 		this.direction = direction;
 		this.color = color;
+		this.sound = sound;
 	}
 
 	getDirection(){
@@ -137,8 +138,16 @@ class Beam{
 		return this.color;
 	}
 
+	getSound(){
+		return this.sound;
+	}
+
 	changeColor(color){
 		this.color = color;
+	}
+
+	changeSound(sound){
+		this.sound = sound;
 	}
 }
 
