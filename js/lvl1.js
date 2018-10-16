@@ -280,8 +280,8 @@ lvl1.prototype.swipeDone = function(cur_over) {
 lvl1.prototype.createBeam = function(tower){
 
     if(fired === false){
-        currentX = tower.x;
-        currentY = tower.y;
+        currentX = tower.centerX;
+        currentY = tower.centerY;
         if(tower.col === colors.RED){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',9);
             n_beam.animations.add('beamer',[9,10,11,12,13,14],13,true);
@@ -308,21 +308,18 @@ lvl1.prototype.createBeam = function(tower){
         n_beam.checkWorldBounds = true;
         n_beam.outOfBoundsKill = true;
         if(n_beam.dir === directions.UP){
-            //n_beam.body.velocity.y = -360;
+            n_beam.body.velocity.y = -360;
         }
         else if(n_beam.dir === directions.LEFT){
             n_beam.body.velocity.x = -360;
-            //n_beam.animations.play('beamer');
 
         }
         else if(n_beam.dir === directions.RIGHT){
             n_beam.body.velocity.x = 360;
-            //n_beam.animations.play('beamer');
 
         }
         else if(n_beam.dir === directions.DOWN){
             n_beam.body.velocity.y = 360;
-            //n_beam.animations.play('sidebeamer');
 
         }
         //game.physics.arcade.moveToXY(n_beam,0,tower.y,240);
@@ -363,7 +360,7 @@ lvl1.prototype.collisionCallback = function(spriteA, spriteB) {
                     spriteA.dir = directions.RIGHT;
                     spriteA.body.velocity.y = 0;
                     spriteA.body.velocity.x = 360;
-                    spriteA.x = spriteB.x + 60;
+                    spriteA.x = spriteB.x + 120;
                     spriteA.y = spriteB.y;
                 }
                 else if(spriteB.dir === directions.DOWNLEFT){
@@ -474,7 +471,7 @@ lvl1.prototype.update = function(){
         var distX = Math.abs(game.input.x - this.startX);
         var distY = Math.abs(game.input.y - this.startY);
         //if the distance is greater than 50 pixels then a swipe has happened
-        if (distX > 50) {
+        if (distX > 50 || distY > 50) {
             this.swipeDone(cur_over);
         }
     }

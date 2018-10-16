@@ -268,8 +268,8 @@ lvl2.prototype.swipeDone = function(cur_over) {
 };
 lvl2.prototype.createBeam = function(tower){
     if(fired === false){
-        currentX = tower.x;
-        currentY = tower.y;
+        currentX = tower.centerX;
+        currentY = tower.centerY;
         if(tower.col === colors.RED){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',9);
             n_beam.animations.add('beamer',[9,10,11,12,13,14],13,true);
@@ -463,7 +463,7 @@ lvl2.prototype.update = function(){
         var distX = Math.abs(game.input.x - this.startX);
         var distY = Math.abs(game.input.y - this.startY);
         //if the distance is greater than 50 pixels then a swipe has happened
-        if (distX > 50) {
+        if (distX > 50 || distY > 50) {
             this.swipeDone(cur_over);
         }
     }
