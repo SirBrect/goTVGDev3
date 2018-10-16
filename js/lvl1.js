@@ -277,15 +277,21 @@ lvl1.prototype.createBeam = function(tower){
         if(tower.col === colors.RED){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',9);
             n_beam.animations.add('beamer',[9,10,11,12,13,14],13,true);
+            //n_beam = game.add.sprite(tower.x,tower.y,'sidebeam',4);
+            //n_beam.animations.add('sidebeamer',[4,5,6,7],4,true);
         }
         else if(tower.col === colors.BLUE){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',0);
             n_beam.animations.add('beamer',[0,1,2,3,4,5],13,true);
+            //n_beam = game.add.sprite(tower.x,tower.y,'sidebeam',0);
+            //n_beam.animations.add('sidebeamer',[0,1,2,3],0,true);
         }
         else if(tower.col === colors.YELLOW){
             n_beam = game.add.sprite(tower.x,tower.y,'beam',16);
             n_beam.animations.add('beamer',[16,17,18,19,20,21],13,true);
-        }
+            //n_beam = game.add.sprite(tower.x,tower.y,'sidebeam',8);
+            //n_beam.animations.add('sidebeamer',[8,9,10,11],8,true);
+        } 
         n_beam.col = tower.col;
         n_beam.dir = tower.dir;
         game.physics.arcade.enable(n_beam);
@@ -294,16 +300,22 @@ lvl1.prototype.createBeam = function(tower){
         n_beam.checkWorldBounds = true;
         n_beam.outOfBoundsKill = true;
         if(n_beam.dir === directions.UP){
-            n_beam.body.velocity.y = -360;
+            //n_beam.body.velocity.y = -360;
         }
         else if(n_beam.dir === directions.LEFT){
             n_beam.body.velocity.x = -360;
+            //n_beam.animations.play('beamer');
+
         }
         else if(n_beam.dir === directions.RIGHT){
             n_beam.body.velocity.x = 360;
+            //n_beam.animations.play('beamer');
+
         }
         else if(n_beam.dir === directions.DOWN){
             n_beam.body.velocity.y = 360;
+            //n_beam.animations.play('sidebeamer');
+
         }
         //game.physics.arcade.moveToXY(n_beam,0,tower.y,240);
         //n_beam.updateTransform();

@@ -33,6 +33,7 @@ preloadState.prototype.preload = function(){
     //Need to be replaced in time
 
     game.load.spritesheet('beam', 'assets/signalsprite.png',60,60,24);
+    game.load.spritesheet('sidebeam', 'assets/signalspritesideways.png',60,60,12);
 };
 
 preloadState.prototype.create = function(){
