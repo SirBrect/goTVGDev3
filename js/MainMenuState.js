@@ -1,8 +1,8 @@
-let MainMenuState = function(){
+let mainMenuState = function(){
 	
 };
 
-MainMenuState.prototype.create = function(){
+mainMenuState.prototype.create = function(){
 	game.add.sprite(0, 0, "main menu screen");
 	let lvlOneButton = game.add.button(game.world.centerX - 256, game.world.centerY + 128, "buttons", buttonClick, this, 0, 0, 0, 0);
 	lvlOneButton.scale.setTo(8,8);
@@ -24,6 +24,6 @@ let buttonClick = function(button){
 	game.state.start(button.name);
 }
 
-let lvlOneButtonClick = function(){
+let exitButtonClick = function(){
 	game.state.start("Game");
 }

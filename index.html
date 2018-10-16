@@ -22,7 +22,7 @@
     let game = new Phaser.Game(2436, 1125, Phaser.AUTO);
 
     game.state.add("Preload", preloadState);
-    game.state.add("Main Menu", MainMenuState);
+    game.state.add("Main Menu", mainMenuState);
     game.state.add("Win", WinState);
     game.state.add("Game", gameplayState);
     game.state.start("Preload");
