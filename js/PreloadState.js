@@ -8,7 +8,7 @@ preloadState.prototype.preload = function(){
 	game.load.image("play button", "assets/PlayButton.png");
 	game.load.image("win screen", "assets/WinScreen.png");
     game.load.image("main menu screen", "assets/main_menu_art.png");
-    game.load.spritesheet("buttons", "assets/buttons.png", 16, 8);
+    game.load.spritesheet("buttons", "assets/buttons.png", 18, 9);
 
 	game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
 
