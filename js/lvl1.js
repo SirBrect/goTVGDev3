@@ -339,7 +339,7 @@ lvl1.prototype.collisionCallback = function(spriteA, spriteB) {
                     spriteA.dir = directions.RIGHT;
                     spriteA.body.velocity.y = 0;
                     spriteA.body.velocity.x = 360;
-                    spriteA.x = spriteB.x + 120;
+                    spriteA.x = spriteB.x + 60;
                     spriteA.y = spriteB.y;
                 }
                 else if(spriteB.dir === directions.DOWNLEFT){

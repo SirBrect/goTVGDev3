@@ -9,10 +9,10 @@ mainMenuState.prototype.create = function(){
 	lvlOneButton.name = "Level One";
 	let lvlTwoButton = game.add.button(game.world.centerX+64, game.world.centerY + 128, "buttons", buttonClick, this, 1, 1, 1, 1);
 	lvlTwoButton.scale.setTo(2,2);
-	lvlOneButton.name = "Level Two";
+	lvlTwoButton.name = "Level Two";
 	let lvlThreeButton = game.add.button(game.world.centerX+256, game.world.centerY + 128, "buttons", buttonClick, this, 2, 2, 2, 2);
 	lvlThreeButton.scale.setTo(2,2);
-	lvlOneButton.name = "Level Three";
+	lvlThreeButton.name = "Level Three";
 	/*let exitButton = game.add.button(game.world.centerX + 448, game.world.centerY + 128, "buttons", exitButtonClick, this, 3, 3, 3, 3);
 	exitButton.scale.setTo(2,2);*/
 
@@ -21,6 +21,6 @@ mainMenuState.prototype.create = function(){
 }
 
 let buttonClick = function(button){
-	game.state.start(button.name);
+	game.state.start("Level One");
 }
 
